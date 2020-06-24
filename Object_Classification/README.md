@@ -42,14 +42,24 @@ The framework for the proposed DFA-ENT is shown below:
 #### Installation
 
 * Install PyTorch and its dependencies ```pip install torch torchvision```
-* Install torchnet ```pip install git+https://github.com/pytorch/tnt.git@master```
 
 # Dataset
 
 Please download dataset from its official website. Please the dataset in the directory ./data.
 
+# Before Training
+
+* Please run ``` python pretrained_model_rename.py ``` before starting the training. The names for the variables of our ResNet-50-based decoder are different from the ResNet-50 pretrained model.
+
 # Train
 
-* Here is an example for running experiment on the adaptation scenario from SVHN to MNIST:
+* Here is an example for training the model on the adaptation scenario from RealWorld to Art:
 
-``` python main.py --source svhn --target mnist```
+``` python train.py --task RA```
+
+# Evaluation
+
+* Here is an example for evaluate the trained model on the adaptation scenario from RealWorld to Art:
+
+``` python eval.py --task RA```
+
