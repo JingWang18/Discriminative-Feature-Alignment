@@ -24,7 +24,7 @@ The t-SNE visualization of our method is shown below
 
 # Dataset
 
-Please download dataset from its official website. Please put the dataset in the directory ./datasets.
+Please download dataset from its official website. Please create a folder named "data" and put the dataset in the directory ./data.
 
 # Train
 
