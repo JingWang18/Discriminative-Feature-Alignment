@@ -20,5 +20,4 @@ The t-SNE visualization of our method is shown below
 #### Installation
 
 * Install PyTorch and its dependencies from [http://pytorch.org/](http://pytorch.org/).
-* Install Torch vision 
-> pip install torchvision
+* Install Torch vision ```pip install torchvision```
