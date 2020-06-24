@@ -45,7 +45,7 @@ The framework for the proposed DFA-ENT is shown below:
 
 # Dataset
 
-Please download dataset from its official website. Please the dataset in the directory ./data.
+Please download dataset from its official website. Please create a folder named "data" and put the dataset in the directory ./data.
 
 # Before Training
 
