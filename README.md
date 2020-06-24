@@ -7,8 +7,6 @@ This is the code implementation of Discriminative Feature Alignment for digit an
 
 Paper Name: Discriminative Feature Alginment: Improving Transferability of Unsupervised Domain Adaptation by Gaussian-guided Latent Alignment: [link to Paper](https://arxiv.org/abs/2006.12770)
 
-![tsne](tsne.png)
-
 # Citation
 
 Please cite our paper if you use the code for your work.
