@@ -3,7 +3,7 @@
 
 ![Idea](overallidea.png)
 
-This is the code implementation of Discriminative Feature Alignment for digit and object classification in Pytorch. The code is implemented by Jing Wang.
+This is the code implementation of Discriminative Feature Alignment for digit and object classification in Pytorch. The code is implemented by Jing Wang. If you have any questions or find any mistakes in the code implementation, please do not hesitate to email me at jing@ece.ubc.ca
 
 Paper Name: Discriminative Feature Alginment: Improving Transferability of Unsupervised Domain Adaptation by Gaussian-guided Latent Alignment [[link to Paper]](https://arxiv.org/abs/2006.12770)
 
