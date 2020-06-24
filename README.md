@@ -15,6 +15,9 @@ Below are the results that can validate the distribution alignment mechanism of 
 
 ![experiment](experimentForAlignment.png)
 
+# Instructions
+
+### The instructions for each experiment is inside the directories ***Digit_Classification*** and  ***Object_Classification***. 
 
 
 # Citation
@@ -29,7 +32,7 @@ Please cite our paper if you use the code for your work.
 }
 ```
 
-# Reference
+# References
 
 [MCD_DA](https://github.com/mil-tokyo/MCD_DA)
 
