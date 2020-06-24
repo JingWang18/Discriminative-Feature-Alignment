@@ -12,12 +12,12 @@ Paper Name: Discriminative Feature Alginment: Improving Transferability of Unsup
 # Citation
 
 Please cite our paper if you use the code for your work.
-'''
+```
 @article{jing2020discriminative,
   title={Discriminative Feature Alginment: Improving Transferability of Unsupervised Domain Adaptation by Gaussian-guided Latent Alignment},
   author={Wang, Jing and Chen, Jiahong and Lin, Jianzhe and Sigal, Leonid and de Silva, W. Clarence},
   journal={arXiv preprint arXiv:2006.12770},
   year={2020}
 }
-'''
+```
 
