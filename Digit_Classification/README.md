@@ -6,3 +6,12 @@ This is the code implementation of Discriminative Feature Alignment for digit an
 The t-SNE visualization of our method is shown below
 
 ![tsne](tsne.png)
+
+# Results
+
+| Method  | SVHN-MNIST | SYNSIGNS-GTSRB | MNIST-USPS | USPS-MNIST |
+| ------------- | ------------- | ------------- | ------------- |------------- |
+| MCD  | 96.2  | 94.4 | 96.5 | 94.1 |
+| ------------- | ------------- | ------------- | ------------- |------------- |
+| DFA-ENT (***Ours***)  | 98.2 | 96.8 | 97.9 | 96.2 |
+| DFA-MCD (***Ours***)  | 98.9 | 97.5 | 98.6 | 96.6 |
