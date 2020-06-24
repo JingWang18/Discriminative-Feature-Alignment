@@ -19,5 +19,14 @@ The t-SNE visualization of our method is shown below
 
 #### Installation
 
-* Install PyTorch and its dependencies from [http://pytorch.org/](http://pytorch.org/).
-* Install Torch vision ```pip install torchvision```
+* Install PyTorch and its dependencies ```pip install torch torchvision```
+* Install torchnet ```pip install git+https://github.com/pytorch/tnt.git@master```
+
+# Dataset
+
+Please download dataset from its official website. Please the dataset in the directory ./data.
+
+# Train
+
+* Here is an example for running experiment on the adaptation scenario from SVHN to MNIST:
+``` python main.py --source svhn --target mnist```
