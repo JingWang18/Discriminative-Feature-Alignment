@@ -17,7 +17,7 @@ Below are the results that can validate the distribution alignment mechanism of 
 
 # Instructions
 
-##### The instructions for the experiments are inside the directories ***Digit_Classification*** and ***Object_Classification***. 
+#### The instructions for the experiments are inside the directories ***Digit_Classification*** and ***Object_Classification***. 
 
 
 # Citation
