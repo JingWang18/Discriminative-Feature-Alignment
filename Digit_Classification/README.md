@@ -1,4 +1,4 @@
-# Discriminative Feature Alignment
+# Discriminative Feature Alignment for Digit Classification
 ##### A prior-guided latent alignment approach for Unsupervised Domain Adaptation
 
 This is the code implementation of Discriminative Feature Alignment for digit and object classification in Pytorch. The code is implemented by Jing Wang.
