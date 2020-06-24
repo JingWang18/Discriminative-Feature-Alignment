@@ -22,7 +22,7 @@ Below are the results that can validate the distribution alignment mechanism of 
 
 # Citation
 
-Please cite our paper if you use the code for your work.
+Please cite our paper if you use our code for your work.
 ```
 @article{jing2020discriminative,
   title={Discriminative Feature Alginment: Improving Transferability of Unsupervised Domain Adaptation by Gaussian-guided Latent Alignment},
