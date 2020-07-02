@@ -22,6 +22,10 @@ The t-SNE visualization of our method is shown below
 * Install PyTorch and its dependencies ```pip install torch torchvision```
 * Install torchnet ```pip install git+https://github.com/pytorch/tnt.git@master```
 
+# One Suggestion
+
+Our framework is developed based on MCD. We want to make sure everything in the code is the same except for DFA when we implemented DFA-MCD. You can compare our code implementation of DFA-MCD with the original implementation of MCD [here](https://github.com/mil-tokyo/MCD_DA/tree/master/classification). You can easily find out how the DFA is incorporated into MCD via such comparison, which will inspire you how to use DFA for your own work.
+
 # Dataset
 
 Download MNIST data from [here](https://drive.google.com/file/d/1cZ4vSIS-IKoyKWPfcgxFMugw0LtMiqPf/view). You download other datasets from their official websites. Please create a folder named "data" and put the dataset in the directory ./data.
