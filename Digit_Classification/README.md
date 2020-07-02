@@ -32,6 +32,6 @@ Download MNIST data from [here](https://drive.google.com/file/d/1cZ4vSIS-IKoyKWP
 
 # Train
 
-* Here is an example for running experiment on the adaptation scenario from SVHN to MNIST:
+* Here is an example for running experiment on the adaptation scenario from MNIST to USPS with all training samples are used:
 
-``` python main.py --source svhn --target mnist```
+``` python main.py --source mnist --target usps --all_use yes```
