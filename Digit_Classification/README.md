@@ -28,7 +28,7 @@ Our framework is developed based on MCD. We want to make sure everything in the 
 
 # Dataset
 
-Download MNIST data from [here](https://drive.google.com/file/d/1cZ4vSIS-IKoyKWPfcgxFMugw0LtMiqPf/view). You download other datasets from their official websites. Please create a folder named "data" and put the dataset in the directory ./data.
+Download MNIST data from [here](https://drive.google.com/file/d/1cZ4vSIS-IKoyKWPfcgxFMugw0LtMiqPf/view). You can download other datasets from their official websites. Please create a folder named "data" and put the dataset in the directory ./data.
 
 # Train
 
