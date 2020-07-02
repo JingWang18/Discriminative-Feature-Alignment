@@ -43,6 +43,10 @@ The framework for the proposed DFA-ENT is shown below:
 
 * Install PyTorch and its dependencies ```pip install torch torchvision```
 
+# One Suggestion
+
+Our framework is developed based on SAFN. We want to make sure everything in the code is the same except for DFA when we implemented DFA-SAFN. You can compare our code implementation of DFA-SAFN with the original implementation of SAFN [here](https://github.com/jihanyang/AFN/tree/master/vanilla). You can easily find out how our DFA is incorporated into SAFN via such comparison, which will inspire you how to use DFA for your own work.
+
 # Dataset
 
 Please download dataset from its official website. Please create a folder named "data" and put the dataset in the directory ./data.
