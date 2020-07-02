@@ -24,7 +24,7 @@ The t-SNE visualization of our method is shown below
 
 # Dataset
 
-Please download dataset from its official website. Please create a folder named "data" and put the dataset in the directory ./data.
+Download MNIST data from [here](https://drive.google.com/file/d/1cZ4vSIS-IKoyKWPfcgxFMugw0LtMiqPf/view). You download other datasets from their official websites. Please create a folder named "data" and put the dataset in the directory ./data.
 
 # Train
 
