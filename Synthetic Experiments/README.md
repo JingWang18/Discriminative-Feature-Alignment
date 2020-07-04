@@ -25,4 +25,5 @@ If you want to test the distribution alignment mechanism on 2D Gaussian Blobs da
 * Here is an example for running the experiment on moon dataset and 2D Gaussian dataset:
 
 ``` python moon.py``` 
+
 ``` python 2d_G.py``` 
