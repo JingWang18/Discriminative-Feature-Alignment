@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 linalg = np.linalg
 
-N = 100
+N = 200
 mean = [1,1]
 #mean_2 = [5,5]
 cov = [[4, 2],[2, 2]]
@@ -11,8 +11,8 @@ data = np.random.multivariate_normal(mean, cov, N)
 data2 = np.random.multivariate_normal(mean, cov_2, N)
 # print(data2.shape)
 # (2, 1000)
-plt.scatter(data2[:,0], data2[:,1], c='green')    
-plt.scatter(data[:,0], data[:,1], c='yellow')
+plt.scatter(data2[:,0], data2[:,1], c='green') # the source distribution
+plt.scatter(data[:,0], data[:,1], c='yellow') # the target distribution
 plt.show()
 #%%
 x_train = data
@@ -86,7 +86,7 @@ print('Test loss before training' , before_train.item())
 #%%
 encoder.train()
 decoder.train()
-epoch = 2000
+epoch = 5000
 for epoch in range(epoch):
     op_e.zero_grad()
     op_d.zero_grad()
@@ -108,8 +108,8 @@ z = encoder(x_train)
 y_pred = decoder(z)
 y_pred=y_pred.cpu().detach().numpy()
 print(y_pred)
-plt.scatter(data2[:,0], data2[:,1], c='green') 
-plt.scatter(y_pred[:,0], y_pred[:,1], c='yellow') 
+plt.scatter(data2[:,0], data2[:,1], c='green') # the source distribution
+plt.scatter(y_pred[:,0], y_pred[:,1], c='blue') # the predicted target distribution
 plt.show()
     
     
