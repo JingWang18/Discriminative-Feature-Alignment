@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import make_blobs, make_moons
+from sklearn.datasets import make_blobs, make_moons, make_circles
 
 X, y = make_moons(n_samples=1000, noise=0.1, random_state=2)
 
@@ -18,8 +18,8 @@ data2 = np.asarray(data2)
 
 # print(data2.shape)
 # (2, 1000)
-plt.scatter(data2[:,0], data2[:,1], c='green')    
-plt.scatter(data[:,0], data[:,1], c='yellow')
+plt.scatter(data2[:,0], data2[:,1], c='green') # the source distribution
+plt.scatter(data[:,0], data[:,1], c='yellow') # the target distribution
 plt.show()
 #%%
 import torch
@@ -111,8 +111,8 @@ decoder.eval()
 z = encoder(x_train)
 y_pred = decoder(z)
 y_pred=y_pred.cpu().detach().numpy()
-plt.scatter(data2[:,0], data2[:,1], c='green') 
-plt.scatter(y_pred[:,0], y_pred[:,1], c='blue') 
+plt.scatter(data2[:,0], data2[:,1], c='green') # the source distribution
+plt.scatter(y_pred[:,0], y_pred[:,1], c='blue') # the predicted target distribution
 plt.show()
     
     
