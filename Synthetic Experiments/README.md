@@ -5,7 +5,7 @@ This is the code implementation of the synthetic experiments to validate the dis
 
 The experimental results are shown below
 
-![align](align.png)
+![align](experimentForAlignment.png)
 
 # Getting Started
 
