@@ -91,7 +91,7 @@ print('Test loss before training' , before_train.item())
 #%%
 encoder.train()
 decoder.train()
-epoch = 2
+epoch = 2000
 for epoch in range(epoch):
     op_e.zero_grad()
     op_d.zero_grad()
