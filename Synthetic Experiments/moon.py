@@ -77,7 +77,7 @@ y_test = torch.FloatTensor(y_test)
 
 encoder = Encoder()
 decoder = Decoder()
-criterion = torch.nn.MSELoss()
+criterion = torch.nn.L1Loss()
 op_e = torch.optim.SGD(encoder.parameters(), lr = 0.01)
 op_d = torch.optim.SGD(decoder.parameters(), lr = 0.01)
 
