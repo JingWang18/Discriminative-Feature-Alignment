@@ -1,18 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import make_blobs, make_moons
-linalg = np.linalg
+from sklearn.datasets import make_blobs, make_moons, make_circles
 
-X, y = make_moons(n_samples=1000, noise=0.05, random_state=42)
+X, y = make_moons(n_samples=1000, noise=0.1, random_state=2)
 
 data = []
 data2 = []
 
 for i in range(len(y)):
     if y[i] == 0:
-        data.append(X[i])
+        data.append(X[i]+1)
     else:
-        data2.append(X[i])
+        data2.append(X[i]+1)
 
 data = np.asarray(data)
 data2 = np.asarray(data2)
@@ -53,11 +52,11 @@ class Decoder(nn.Module):
 
         self.model = nn.Sequential(
             nn.Linear(256, 128),
-            nn.BatchNorm1d(128),
             nn.ReLU(),
             nn.Linear(128, 56),
             nn.ReLU(),
             nn.Linear(56, 2),
+            nn.BatchNorm1d(2),
             nn.ReLU(),
         )
 
@@ -91,7 +90,7 @@ print('Test loss before training' , before_train.item())
 #%%
 encoder.train()
 decoder.train()
-epoch = 2000
+epoch = 10000
 for epoch in range(epoch):
     op_e.zero_grad()
     op_d.zero_grad()
@@ -113,7 +112,7 @@ z = encoder(x_train)
 y_pred = decoder(z)
 y_pred=y_pred.cpu().detach().numpy()
 plt.scatter(data2[:,0], data2[:,1], c='green') 
-plt.scatter(y_pred[:,0], y_pred[:,1], c='yellow') 
+plt.scatter(y_pred[:,0], y_pred[:,1], c='blue') 
 plt.show()
     
     
