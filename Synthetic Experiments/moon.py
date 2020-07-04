@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import make_blobs, make_moons, make_circles
+from sklearn.datasets import make_blobs, make_moons
 
 X, y = make_moons(n_samples=1000, noise=0.1, random_state=2)
 
