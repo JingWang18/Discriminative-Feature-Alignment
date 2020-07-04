@@ -61,11 +61,6 @@ class Decoder(nn.Module):
         img = self.model(x)
         return img
         
-def blob_label(y, label, loc): # assign labels
-    target = np.copy(y)
-    for l in loc:
-        target[y == l] = label
-    return target
 x_train = data
 y_train = data2
 x_train = torch.FloatTensor(x_train)
