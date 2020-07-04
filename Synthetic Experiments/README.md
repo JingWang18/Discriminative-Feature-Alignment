@@ -1,5 +1,5 @@
 # Discriminative Feature Alignment for Digit Classification
-##### A prior-guided latent alignment approach for Unsupervised Domain Adaptation
+#### Validation of the distribution alignment mechanism of our proposed ```distribution alignment loss```.
 
 This is the code implementation of the synthetic experiments to validate the distribution alignment mechanism of our proposed ```distribution alignment loss``` in Pytorch. The code is implemented by Jing Wang.
 
