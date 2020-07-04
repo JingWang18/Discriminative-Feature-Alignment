@@ -7,16 +7,17 @@ mean = [1,1]
 #mean_2 = [5,5]
 cov = [[4, 2],[2, 2]]
 cov_2 = [[0.3, 0.2],[0.2, 0.2]]
-data = np.random.multivariate_normal(mean, cov, N)
-data2 = np.random.multivariate_normal(mean, cov_2, N)
+data = np.random.multivariate_normal(mean, cov, N) # the target distribution
+data2 = np.random.multivariate_normal(mean, cov_2, N) # the source distribution
+
 # print(data2.shape)
 # (2, 1000)
 plt.scatter(data2[:,0], data2[:,1], c='green') # the source distribution
 plt.scatter(data[:,0], data[:,1], c='yellow') # the target distribution
 plt.show()
 #%%
-x_train = data
-y_train = data2
+x_train = data # the target distribution
+y_train = data2 # the source distribution
 
 #%%
 import torch

@@ -8,13 +8,13 @@ data = []
 data2 = []
 
 for i in range(len(y)):
-    if y[i] == 0:
+    if y[i] == 0: # the target distribution
         data.append(X[i]+1)
-    else:
+    else: # the source distribution
         data2.append(X[i]+1)
 
-data = np.asarray(data)
-data2 = np.asarray(data2)
+data = np.asarray(data) # the target distribution
+data2 = np.asarray(data2) # the source distribution
 
 # print(data2.shape)
 # (2, 1000)
@@ -65,8 +65,8 @@ class Decoder(nn.Module):
         return img
 
 #%%
-x_train = data
-y_train = data2
+x_train = data # the target distribution
+y_train = data2 # the source distribution
 x_train = torch.FloatTensor(x_train)
 y_train = torch.FloatTensor(y_train)
 x_test = data
