@@ -18,7 +18,7 @@ The experimental results are shown below
 
 # Dataset
 
-If you want to test the distribution alignment mechanism on 2D Gaussian Blobs dataset, please revise ```line 6``` in ```moon.py```.
+If you want to test the distribution alignment mechanism on 2D Gaussian Blobs dataset, please revise ```line 5``` in ```moon.py```.
 
 # Train
 
