@@ -2,7 +2,7 @@ import numpy as np
 import pickle as pkl
 
 def load_gtsrb():
-    data_target = pkl.load(open(r'C:\Users\wang0918.stu\Desktop\KFEMCD\No_USPS\data\data_gtsrb'))
+    data_target = pkl.load(open('data/data_gtsrb'))
     target_train = np.random.permutation(len(data_target['image']))
     data_t_im = data_target['image'][target_train[:31367], :, :, :]
     data_t_im_test = data_target['image'][target_train[31367:], :, :, :]
