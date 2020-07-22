@@ -23,8 +23,8 @@ class Solver(object):
         self.save_epoch = save_epoch
         self.use_abs_diff = args.use_abs_diff
         self.all_use = all_use
-        self.alpha = args.alpha
-        self.beta = args.beta
+        self.lambda_1 = args.lambda_1
+        self.lambda_2 = args.lambda_2
         if self.source == 'svhn':
             self.scale = True
         else:
@@ -89,8 +89,8 @@ class Solver(object):
     def train(self, epoch, record_file=None):
         criterion = nn.CrossEntropyLoss().cuda()
         
-        # initialze a L1 loss for DAL
-        criterionDAL = nn.L1Loss().cuda()
+        # initialze a L1 loss for distribution alignment
+        criterionConsistency = nn.L1Loss().cuda()
         
         self.C1.train()
         self.C2.train()
@@ -124,12 +124,11 @@ class Solver(object):
             feat_s_kl = feat_s.view(-1,48)
             # for svhn (source)
             #feat_s_kl = feat_s.view(-1,128)
-
             loss_kld = F.kl_div(F.log_softmax(feat_s_kl), F.softmax(z))
 
             loss_s1 = criterion(output_s1, label_s)
             loss_s2 = criterion(output_s2, label_s)
-            loss_s = loss_s1 + loss_s2 + self.alpha * loss_kld
+            loss_s = loss_s1 + loss_s2 + self.lambda_1 * loss_kld
             loss_s.backward()
             self.opt_g.step()
             self.opt_c1.step()
@@ -151,7 +150,7 @@ class Solver(object):
 
             loss_s1 = criterion(output_s1, label_s)
             loss_s2 = criterion(output_s2, label_s)
-            loss_s = loss_s1 + loss_s2 + self.alpha *loss_kld
+            loss_s = loss_s1 + loss_s2 + self.lambda_1 *loss_kld
             loss_dis = self.discrepancy(output_t1, output_t2)
             loss = loss_s - loss_dis
             loss.backward()
@@ -164,14 +163,16 @@ class Solver(object):
                 output_t1 = self.C1(feat_t)
                 output_t2 = self.C2(feat_t)
                 
+                # get x_rt
                 feat_t_recon = self.G(img_t, is_deconv=True)
+
                 feat_z_recon = self.G.decode(z)
                 
-                # DAL
-                loss_dal = criterionDAL(feat_t_recon, feat_z_recon) 
+                # distribution alignment loss 
+                loss_dal = criterionConsistency(feat_t_recon, feat_z_recon) 
                     
                 #updated loss function
-                loss_dis = self.discrepancy(output_t1, output_t2) + self.beta *loss_dal
+                loss_dis = self.discrepancy(output_t1, output_t2) + self.lambda_2 *loss_dal
                 
                 loss_dis.backward()
                 self.opt_g.step()

@@ -3,7 +3,7 @@ from scipy.io import loadmat
 
 
 def load_mnist(scale=True, usps=False, all_use=False):
-    mnist_data = loadmat('data/mnist_data.mat')
+    mnist_data = loadmat(r'C:\Users\wang0918.stu\Desktop\KFEMCD\No_USPS\data\mnist_data.mat')
     if scale:
         mnist_train = np.reshape(mnist_data['train_32'], (55000, 32, 32, 1))
         mnist_test = np.reshape(mnist_data['test_32'], (10000, 32, 32, 1))

@@ -27,8 +27,41 @@ class Feature(nn.Module):
         self.indices1 = []
         self.indices2 = []
 
+################################################################################        
+###### uncomment these lines for adaptation scenario from USPS to MNIST ########
+################################################################################            
+# =============================================================================
+        # residual blocks
+        self.conv1_res = nn.Conv2d(48, 48, kernel_size=5, stride=1, padding=2)
+        self.conv2_res = nn.Conv2d(48, 48, kernel_size=5, stride=1, padding=2)
+        self.bn1_res = nn.BatchNorm2d(48)
+        self.bn2_res = nn.BatchNorm2d(48)
+        # self.conv3_res = nn.Conv2d(48,48, kernel_size=5, stride=1, padding=2)
+        # self.conv4_res = nn.Conv2d(48,48, kernel_size=5, stride=1, padding=2)
+        # self.bn3_res = nn.BatchNorm2d(48)
+        # self.bn4_res = nn.BatchNorm2d(48)
+        # self.conv5_res = nn.Conv2d(48,48, kernel_size=5, stride=1, padding=2)
+        # self.conv6_res = nn.Conv2d(48,48, kernel_size=5, stride=1, padding=2)
+        # self.bn5_res = nn.BatchNorm2d(48)
+        # self.bn6_res = nn.BatchNorm2d(48)  
+        # self.conv7_res = nn.Conv2d(48,48, kernel_size=5, stride=1, padding=2)
+        # self.conv8_res = nn.Conv2d(48,48, kernel_size=5, stride=1, padding=2)
+        # self.bn7_res = nn.BatchNorm2d(48)
+        # self.bn8_res = nn.BatchNorm2d(48) 
+# =============================================================================
     def decode(self, z):
         z = z.view(128,48,4,4)
+
+        # z = self.unpool1(z, self.indices2)
+        # z = self.relu(self.bn1_de_z(self.de_conv1(z)))
+        # z = self.unpool2(z, self.indices1)
+        # x = self.relu(self.bn2_de_z(self.de_conv2(z)))
+
+        # a = z
+        # x = self.relu(self.bn1_res(self.conv1_res(z)))
+        # x = self.bn2_res(self.conv2_res(x))
+        # x = a + x
+
         x = self.unpool1(z, self.indices2)
         x = self.relu(self.bn1_de(F.conv_transpose2d(x, weight=self.conv2.weight, stride=1)))
         x = self.unpool1(x, self.indices1)
@@ -44,6 +77,28 @@ class Feature(nn.Module):
         self.indices2 = indices2
         
         if is_deconv:            
+################################################################################        
+###### uncomment these lines for adaptation scenario from USPS to MNIST ########
+################################################################################         
+# =============================================================================
+            # residual blocks
+            # a = x
+            # x = self.relu(self.bn1_res(self.conv1_res(x)))
+            # x = self.bn2_res(self.conv2_res(x))
+            # x = a + x
+            # b = x
+            # x = self.relu(self.bn3_res(self.conv3_res(x)))
+            # x = self.bn4_res(self.conv4_res(x))
+            # x = b + x     
+            # c = x
+            # x = self.relu(self.bn5_res(self.conv5_res(x)))
+            # x = self.bn6_res(self.conv6_res(x))
+            # x = c + x
+            # d = x
+            # x = self.relu(self.bn7_res(self.conv7_res(x)))
+            # x = self.bn8_res(self.conv8_res(x))
+            # x = d + x            
+# =============================================================================
             x = self.unpool1(x, indices2)
             x = self.relu(self.bn1_de(F.conv_transpose2d(x, weight=self.conv2.weight, stride=1)))
             x = self.unpool1(x, indices1)
