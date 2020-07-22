@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def weights_init(m):
     classname = m.__class__.__name__
     if classname.find('Conv') != -1:

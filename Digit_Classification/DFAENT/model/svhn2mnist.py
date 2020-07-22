@@ -28,10 +28,12 @@ class Feature(nn.Module):
 
     def decode(self, z):
         z = z.view(256,128,8,8)
+
         a = z
         x = self.relu(self.bn1_res(self.conv1_res(z)))
         x = self.bn2_res(self.conv2_res(x))
         x = a + x
+        
         x = self.relu(self.bn1_de(F.conv_transpose2d(z, weight=self.conv3.weight, stride=1, padding=2)))
         x = self.unpool1(x, self.indices2)
         x = self.relu(self.bn2_de(F.conv_transpose2d(x, weight=self.conv2.weight, stride=1, padding=2)))
@@ -48,6 +50,7 @@ class Feature(nn.Module):
             x = self.relu(self.bn1_res(self.conv1_res(x)))
             x = self.bn2_res(self.conv2_res(x))
             x = a + x
+
             x = self.relu(self.bn1_de(F.conv_transpose2d(x, weight=self.conv3.weight, stride=1, padding=2)))
             x = self.unpool1(x, self.indices2)
             x = self.relu(self.bn2_de(F.conv_transpose2d(x, weight=self.conv2.weight, stride=1, padding=2)))

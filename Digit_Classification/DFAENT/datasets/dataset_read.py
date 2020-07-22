@@ -5,6 +5,7 @@ from datasets.unaligned_data_loader import UnalignedDataLoader
 from datasets.svhn import load_svhn
 from datasets.mnist import load_mnist
 from datasets.gtsrb import load_gtsrb
+from datasets.usps import load_usps
 from datasets.synth_traffic import load_syntraffic
 
 
@@ -22,6 +23,9 @@ def return_dataset(data, scale=False, usps=False, all_use='no'):
     if data == 'gtsrb':
         train_image, train_label, \
         test_image, test_label = load_gtsrb()
+    if data == 'usps':
+        train_image, train_label, \
+        test_image, test_label = load_usps(all_use=all_use)
 
     return train_image, train_label, test_image, test_label
 

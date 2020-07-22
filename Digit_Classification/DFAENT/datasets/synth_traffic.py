@@ -2,7 +2,7 @@ import numpy as np
 import pickle as pkl
 
 def load_syntraffic():
-    data_source = pkl.load(open('data/data_synthetic'))
+    data_source = pkl.load(open(r'C:\Users\wang0918.stu\Desktop\KFEMCD\No_USPS\data\data_synthetic'))
     source_train = np.random.permutation(len(data_source['image']))
     data_s_im = data_source['image'][source_train[:len(data_source['image'])], :, :, :]
     data_s_im_test = data_source['image'][source_train[len(data_source['image']) - 2000:], :, :, :]

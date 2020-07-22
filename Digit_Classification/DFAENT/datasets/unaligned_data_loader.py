@@ -59,7 +59,8 @@ class UnalignedDataLoader():
         ])
         dataset_source = Dataset(source['imgs'], source['labels'], transform=transform)
         dataset_target = Dataset(target['imgs'], target['labels'], transform=transform)
-        
+        # dataset_source = tnt.dataset.TensorDataset([source['imgs'], source['labels']])
+        # dataset_target = tnt.dataset.TensorDataset([target['imgs'], target['labels']])
         data_loader_s = torch.utils.data.DataLoader(
             dataset_source,
             batch_size=batch_size1,

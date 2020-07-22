@@ -23,8 +23,8 @@ class Solver(object):
         self.save_epoch = save_epoch
         self.use_abs_diff = args.use_abs_diff
         self.all_use = all_use
-        self.alpha = args.alpha
-        self.beta = args.beta
+        self.lambda_1 = args.lambda_1
+        self.lambda_2 = args.lambda_2
         if self.source == 'svhn':
             self.scale = True
         else:
@@ -74,7 +74,7 @@ class Solver(object):
         self.opt_c.zero_grad()
 
     def get_entropy_loss(self, p_softmax):
-        mask = p_softmax.ge(0.000001)
+        mask = p_softmax.ge(0.0000001)
         mask_out = torch.masked_select(p_softmax, mask)
         entropy = -(torch.sum(mask_out * torch.log(mask_out)))
         return 0.1 * (entropy / float(p_softmax.size(0))) 
@@ -103,10 +103,11 @@ class Solver(object):
             img_t = img_t.cuda()
             label_s = Variable(label_s.long().cuda())
 
-            # for mnist or usps (source) 
+            # for mnist or usps (source) 128
             zn = Variable(Tensor(np.random.normal(0,1, (4096, 48))))
             # for svhn (source)
-            #zn = Variable(Tensor(np.random.normal(0,1, (16384, 128))))
+            #zn = Variable(Tensor(np.random.normal(0,1,(16384, 128))))
+
 
             img_s = Variable(img_s)
             img_t = Variable(img_t)
@@ -127,7 +128,7 @@ class Solver(object):
 
             loss_s = criterion(output_s, label_s)
 
-            loss = loss_s + self.alpha * loss_kld_s
+            loss = loss_s + self.lambda_1 * loss_kld_s
             loss.backward()
 
             self.opt_g.step()
@@ -139,14 +140,14 @@ class Solver(object):
             feat_t_recon = self.G(img_t, is_deconv= True)
 
             feat_zn_recon = self.G.decode(zn)
-            # DAL 
+            # Distribution Alignment Loss (DAL)
             loss_dal = criterionDAL(feat_t_recon, feat_zn_recon) 
 
             # entropy loss
             t_prob = F.softmax(output_t)
             t_entropy_loss = self.get_entropy_loss(t_prob)
 
-            loss = t_entropy_loss + self.beta * loss_dal
+            loss = t_entropy_loss + self.lambda_2 * loss_dal
             loss.backward()
 
             self.opt_g.step()

@@ -20,18 +20,9 @@ class Feature(nn.Module):
         self.relu = nn.ReLU()
         self.maxpool = nn.MaxPool2d(stride=2, kernel_size=2, padding=0, return_indices=True)
 
-        self.conv1_res = nn.Conv2d(256,256, kernel_size=5, stride=1, padding=2)
-        self.conv2_res = nn.Conv2d(256,256, kernel_size=5, stride=1, padding=2)
-        self.bn1_res = nn.BatchNorm2d(256)
-        self.bn2_res = nn.BatchNorm2d(256)
-
     def decode(self, z):
         z = z.view(256,256,4,4)
-        a = z
-        x = self.relu(self.bn1_res(self.conv1_res(z)))
-        x = self.bn2_res(self.conv2_res(x))
-        x = a + x
-        x = self.unpool3(x, indices3)
+        x = self.unpool3(z, indices3)
         x = self.relu(self.bn1_de(F.conv_transpose2d(x, weight=self.conv3.weight, stride=1, padding=2)))
         x = self.unpool1(x, indices2)
         x = self.relu(self.bn2_de(F.conv_transpose2d(x, weight=self.conv2.weight, stride=1, padding=1)))
@@ -45,10 +36,6 @@ class Feature(nn.Module):
         x, indices3 = self.maxpool(self.relu(self.bn3(self.conv3(x))))
 
         if is_deconv:
-            a = x
-            x = self.relu(self.bn1_res(self.conv1_res(x)))
-            x = self.bn2_res(self.conv2_res(x))
-            x = a + x
             x = self.unpool3(x, indices3)
             x = self.relu(self.bn1_de(F.conv_transpose2d(x, weight=self.conv3.weight, stride=1, padding=2)))
             x = self.unpool1(x, indices2)

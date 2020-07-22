@@ -5,7 +5,7 @@ from solver import Solver
 import os
 
 # Training settings
-parser = argparse.ArgumentParser(description='PyTorch DFAENT Implementation')
+parser = argparse.ArgumentParser(description='PyTorch MCD Implementation')
 parser.add_argument('--all_use', type=str, default='no', metavar='N',
                     help='use all training data? in usps adaptation')
 parser.add_argument('--batch-size', type=int, default=256, metavar='N',
@@ -38,9 +38,9 @@ parser.add_argument('--source', type=str, default='mnist', metavar='N',
 parser.add_argument('--target', type=str, default='usps', metavar='N', help='target dataset')
 parser.add_argument('--use_abs_diff', action='store_true', default=False,
                     help='use absolute difference value as a measurement')
-parser.add_argument('--alpha', type=float, default=0.01,
+parser.add_argument('--lambda_1', type=float, default=0.01,
                     help='weight for KL-divergence (default: 0.01)')
-parser.add_argument('--beta', type=float, default=10.0,
+parser.add_argument('--lambda_2', type=float, default=10.0,
                     help='weight for DAL (default: 10.0)')
 
 args = parser.parse_args()
