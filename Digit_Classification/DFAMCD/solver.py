@@ -92,7 +92,6 @@ class Solver(object):
         # initialze a L1 loss for distribution alignment
         criterionConsistency = nn.L1Loss().cuda()
         
-        self.G.train()
         self.C1.train()
         self.C2.train()
         torch.cuda.manual_seed(1)
