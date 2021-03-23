@@ -5,7 +5,7 @@
 
 This is the code implementation of Discriminative Feature Alignment for digit and object classification in Pytorch. The code is implemented by Jing Wang. If you have any questions or find any mistakes in the code implementation, please do not hesitate to email me at jing@ece.ubc.ca
 
-Paper Name: Discriminative Feature Alginment: Improving Transferability of Unsupervised Domain Adaptation by Gaussian-guided Latent Alignment [[link to Paper (ArXiv)]](https://arxiv.org/abs/2006.12770) [[Pattern Recognition]](https://www.sciencedirect.com/science/article/pii/S0031320321001308?casa_token=Yg5kXSnM-ycAAAAA:U5cNbRVY25-imG02vTBVwE7MYvRHU08IbmFsYaWHZlyCVzqSgyFqd3k8a-sBAuQitgkjtKmRJQ)
+Paper Name: Discriminative Feature Alginment: Improving Transferability of Unsupervised Domain Adaptation by Gaussian-guided Latent Alignment [[link to Paper (ArXiv)]](https://arxiv.org/abs/2006.12770) [[Link to Paper (Pattern Recognition)]](https://www.sciencedirect.com/science/article/pii/S0031320321001308?casa_token=Yg5kXSnM-ycAAAAA:U5cNbRVY25-imG02vTBVwE7MYvRHU08IbmFsYaWHZlyCVzqSgyFqd3k8a-sBAuQitgkjtKmRJQ)
 
 One of the key contribution of this paper is introducing a new method to align any two distributions, which is GAN explored. Instead of optimizing the discriminator error, it minimizes the direct L1-distance between the decoded samples in the feature space.
 
